@@ -4,15 +4,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <title>GEOPE - Cálculo de Parâmetros</title>
-    </head>
+</head>
 <body>
     <div class="container">
         <header>
-            <div class="header-left"><img class="gist-logo" src="https://th.bing.com/th/id/OIP.WXt5gHtQWWCULzuSYExo-AHaBQ?w=311&h=61&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Sindionibus logo" /></div>
+            <div class="header-left">
+                <img class="gist-logo" src="https://th.bing.com/th/id/OIP.WXt5gHtQWWCULzuSYExo-AHaBQ?w=311&h=61&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Sindionibus logo" />
+            </div>
             
             <div class="header-text-container">
-            <h1 class="header-title">Gerência de Operações</h1>
-            <h2 class="header-subtitle">Cálculo de Parâmetros do GIST</h2>
+                <h1 class="header-title">Gerência de Operações</h1>
+                <h2 class="header-subtitle">Cálculo de Parâmetros do GIST</h2>
             </div>
         </header>
 
@@ -24,7 +26,6 @@
                 </div>
                 <div class="input-group">
                     <label for="tabela-select">TABELA:</label>
-                    <!-- <input type="text" id="tabela" /> -->
                     <select id="tabela-select" class="select-input" disabled>
                         <option ></option>
                     </select>
@@ -34,7 +35,6 @@
                      <select name="hora-inicial" id="hora-inicial-select" class="select-input" disabled>
                         <option></option>
                      </select>
-                    <!-- <input type="time" id="hora-inicial" /> -->
                 </div>
                 <div class="input-group">
                     <label for="hora-final">HORA FINAL:</label>
@@ -45,20 +45,27 @@
                     <span id="tempo-viagem">...</span> min.
                 </div>
                 <div class="button-group">
-                <button id="calcular" class="calc-button">Calcular</button>
-                <button id="limpar" class="clear-button">Limpar</button>
+                    <button id="calcular" class="calc-button">Calcular</button>
+                    <button id="limpar" class="clear-button">Limpar</button>
                 </div>
             </div>
 
             <div class="sections-grid">
                 <div class="atrasos-section">
-                    <div class="section-title">Atrasos</div>
+                    <div class="section-title">Atrasos / Distorção</div>
                     
                     <div class="category">
                         <div class="category-title">VIAGENS DE 0 A 30 MIN.</div>
                         <div class="category-content">
                             <div class="sub-category">
-                                <div class="sub-category-title">Atraso LIMITE: (PERDA DE 100%)</div>
+                                <div class="sub-category-title">Atraso LIMITE: (PERDA DE 25%)</div>
+                                <label for="saida-0-30-25">SAÍDA:</label>
+                                <input type="text" id="saida-0-30-25" readonly />
+                                <label for="chegada-0-30-25">CHEGADA:</label>
+                                <input type="text" id="chegada-0-30-25" readonly />
+                            </div>
+                            <div class="sub-category">
+                                <div class="sub-category-title">Distorção LIMITE: (PERDA DE 100%)</div>
                                 <label for="saida-0-30-100">SAÍDA:</label>
                                 <input type="text" id="saida-0-30-100" readonly />
                                 <label for="chegada-0-30-100">CHEGADA:</label>
@@ -78,7 +85,7 @@
                                 <input type="text" id="chegada-31-60-25" readonly />
                             </div>
                             <div class="sub-category">
-                                <div class="sub-category-title">Atraso LIMITE: (PERDA DE 100%)</div>
+                                <div class="sub-category-title">Distorção LIMITE: (PERDA DE 100%)</div>
                                 <label for="saida-31-60-100">SAÍDA:</label>
                                 <input type="text" id="saida-31-60-100" readonly />
                                 <label for="chegada-31-60-100">CHEGADA:</label>
@@ -98,7 +105,7 @@
                                 <input type="text" id="chegada-61-200-25" readonly />
                             </div>
                             <div class="sub-category">
-                                <div class="sub-category-title">Atraso LIMITE: (PERDA DE 100%)</div>
+                                <div class="sub-category-title">Distorção LIMITE: (PERDA DE 100%)</div>
                                 <label for="saida-61-200-100">SAÍDA:</label>
                                 <input type="text" id="saida-61-200-100" readonly />
                                 <label for="chegada-61-200-100">CHEGADA:</label>
@@ -106,11 +113,10 @@
                             </div>
                         </div>
                     </div>
-                    <img src="https://raw.githubusercontent.com/IsraelCesarA/ParametroOnline/refs/heads/main/Atraso.png" alt="Atraso">
                 </div>
 
                 <div class="adiantamento-section">
-                    <div class="section-title">Adiantamento</div>
+                    <div class="section-title">Adiantamento / Distorção</div>
                     
                     <div class="category">
                         <div class="category-title">VIAGENS DE 0 A 30 MIN.</div>
@@ -121,6 +127,13 @@
                                 <input type="text" id="saida-0-30-ad" readonly />
                                 <label for="chegada-0-30-ad">CHEGADA:</label>
                                 <input type="text" id="chegada-0-30-ad" readonly />
+                            </div>
+                            <div class="sub-category">
+                                <div class="sub-category-title">Distorção LIMITE: (PERDA DE 100%)</div>
+                                <label for="saida-0-30-ad-dist">SAÍDA:</label>
+                                <input type="text" id="saida-0-30-ad-dist" readonly />
+                                <label for="chegada-0-30-ad-dist">CHEGADA:</label>
+                                <input type="text" id="chegada-0-30-ad-dist" readonly />
                             </div>
                         </div>
                     </div>
@@ -135,6 +148,13 @@
                                 <label for="chegada-31-60-ad">CHEGADA:</label>
                                 <input type="text" id="chegada-31-60-ad" readonly />
                             </div>
+                            <div class="sub-category">
+                                <div class="sub-category-title">Distorção LIMITE: (PERDA DE 100%)</div>
+                                <label for="saida-31-60-ad-dist">SAÍDA:</label>
+                                <input type="text" id="saida-31-60-ad-dist" readonly />
+                                <label for="chegada-31-60-ad-dist">CHEGADA:</label>
+                                <input type="text" id="chegada-31-60-ad-dist" readonly />
+                            </div>
                         </div>
                     </div>
 
@@ -148,16 +168,69 @@
                                 <label for="chegada-61-200-ad">CHEGADA:</label>
                                 <input type="text" id="chegada-61-200-ad" readonly />
                             </div>
+                            <div class="sub-category">
+                                <div class="sub-category-title">Distorção LIMITE: (PERDA DE 100%)</div>
+                                <label for="saida-61-200-ad-dist">SAÍDA:</label>
+                                <input type="text" id="saida-61-200-ad-dist" readonly />
+                                <label for="chegada-61-200-ad-dist">CHEGADA:</label>
+                                <input type="text" id="chegada-61-200-ad-dist" readonly />
+                            </div>
                         </div>
                     </div>
-                    <img src="https://raw.githubusercontent.com/IsraelCesarA/ParametroOnline/refs/heads/main/Adiantamento.png" alt="Adiantamento">
+
                 </div>
-            
+            </div>
+
+            <div class="tabela-parametros-container">
+                <h2>Parâmetros para o GIST – Vigência a partir de 01/06/2026</h2>
+                <div class="tabela-parametros-wrapper">
+                    <table class="tabela-parametros">
+                        <thead>
+                            <tr>
+                                <th>Tempo do Trecho ( min )</th>
+                                <th>Adiant. Saída/Cheg. ( % )</th>
+                                <th>% Perda do Trecho</th>
+                                <th>Atraso Sai./Cheg.</th>
+                                <th>% Perda do Trecho</th>
+                                <th>Parâmetro Distorção</th>
+                                <th>% Perda do Trecho</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0 – 30</td>
+                                <td class="coluna-destaque">&gt;40%</td>
+                                <td class="coluna-destaque">25%</td>
+                                <td>&gt;100%</td>
+                                <td>25%</td>
+                                <td>200%</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>31-60</td>
+                                <td class="coluna-destaque">&gt;28%</td>
+                                <td class="coluna-destaque">25%</td>
+                                <td>&gt;80%</td>
+                                <td>25%</td>
+                                <td>200%</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>60-200</td>
+                                <td class="coluna-destaque">&gt;20%</td>
+                                <td class="coluna-destaque">25%</td>
+                                <td>&gt;40%</td>
+                                <td>25%</td>
+                                <td>200%</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
-    </div>
-    </body>
-    <script src="./script.js"></script>
-
-    </html>
-
+</body>
+<script src="./script.js"></script>
+</html>
